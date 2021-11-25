@@ -12,7 +12,7 @@ final MethodChannel _channel = const MethodChannel('$_scanType/method');
 
 Future<List<RScanCameraDescription>> availableRScanCameras() async {
   try {
-    final List<Map<dynamic, dynamic>> cameras = await (_channel
+    final List<Map<dynamic, dynamic>>? cameras = await (_channel
             .invokeListMethod<Map<dynamic, dynamic>>('availableCameras')
         as Future<List<Map<dynamic, dynamic>>?>);
     return cameras.map((Map<dynamic, dynamic> camera) {
