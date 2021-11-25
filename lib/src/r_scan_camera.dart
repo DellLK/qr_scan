@@ -14,7 +14,7 @@ Future<List<RScanCameraDescription>> availableRScanCameras() async {
   try {
     final List<Map<dynamic, dynamic>> cameras = await (_channel
             .invokeListMethod<Map<dynamic, dynamic>>('availableCameras')
-        as Future<List<Map<dynamic, dynamic>>>);
+        as Future<List<Map<dynamic, dynamic>>?>);
     return cameras.map((Map<dynamic, dynamic> camera) {
       return RScanCameraDescription(
         name: camera['name'],
